@@ -3,19 +3,26 @@
 
 #include <string>
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 class Employee
 {
     private:
         string name;
-        char SSN[11];
-        int month_salary;
+        string SSN;
+        double month_salary;
         int month;
         int year;
 
     public:
         Employee();
+        Employee(string name, string SSN, double month_salary, int month, int year);
+        void write(ofstream& fout) const;
+        void read(ifstream& fin);
+
+        friend ostream &operator << (ostream &out, Employee &employee);
+
 
 };
 
