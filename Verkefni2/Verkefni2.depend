@@ -68,3 +68,110 @@
 1512486899 source:/home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/src/exceptions/InvalidMonthException.cpp
 	"InvalidMonthException.h"
 
+1512476495 source:c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\main.cpp
+	<iostream>
+	"UserUI.h"
+
+1512594468 c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\include\ui\userui.h
+	"UserService.h"
+	<iostream>
+
+1512593871 c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\include\services\userservice.h
+	"UserRep.h"
+	"invalidSNNExeption.h"
+	"InvalidNameException.h"
+	"InvalidSalaryException.h"
+	"InvalidMonthException.h"
+	"InvalidYearException.h"
+	"SalaryListChangedException.h"
+	"SSNNotInListExeption.h"
+	"YearNotInListExeption.h"
+	<iostream>
+	<string>
+	<stdlib.h>
+
+1512565462 c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\include\exceptions\invalidsnnexeption.h
+
+1512565462 c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\include\exceptions\invalidnameexception.h
+
+1512565462 c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\include\exceptions\invalidsalaryexception.h
+
+1512565462 c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\include\exceptions\invalidmonthexception.h
+
+1512565459 source:c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\src\exceptions\invalidanswer.cpp
+	"InvalidAnswer.h"
+
+1512565459 c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\include\exceptions\invalidanswer.h
+
+1512565462 source:c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\src\exceptions\invalidmonthexception.cpp
+	"InvalidMonthException.h"
+
+1512565462 source:c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\src\exceptions\invalidnameexception.cpp
+	"InvalidNameException.h"
+
+1512565462 source:c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\src\exceptions\invalidsalaryexception.cpp
+	"InvalidSalaryException.h"
+
+1512565462 source:c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\src\exceptions\invalidsnnexeption.cpp
+	"invalidSNNExeption.h"
+
+1512573469 source:c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\src\models\employee.cpp
+	"Employee.h"
+
+1512573352 c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\include\models\employee.h
+	<string>
+	<iostream>
+	<fstream>
+
+1512571816 source:c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\src\repositories\userrep.cpp
+	"UserRep.h"
+
+1512571821 c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\include\repositories\userrep.h
+	<vector>
+	<string>
+	<iostream>
+	<fstream>
+	"Employee.h"
+
+1512594589 source:c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\src\services\userservice.cpp
+	"UserService.h"
+
+1512594635 source:c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\src\ui\userui.cpp
+	"UserUI.h"
+	"Employee.h"
+
+1512570563 c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\include\exceptions\invalidyearexception.h
+
+1512565462 source:c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\src\exceptions\invalidsalaryexeption.cpp
+	"InvalidSalaryExeption.h"
+
+1512565462 c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\include\exceptions\invalidsalaryexeption.h
+
+1512565462 source:c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\src\exceptions\invalidsnn.cpp
+	"invalidSNN.h"
+
+1512565462 c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\include\exceptions\invalidsnn.h
+
+1512570563 source:c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\src\exceptions\invalidyearexception.cpp
+	"InvalidYearException.h"
+
+1512572076 c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\include\exceptions\salarylistchangedexception.h
+
+1512572073 source:c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\src\exceptions\salarylistchangedexception.cpp
+	"SalaryListChangedException.h"
+
+1512592274 c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\include\exceptions\ssnnotinlistexeption.h
+
+1512592274 source:c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\src\exceptions\ssnnotinlistexeption.cpp
+	"SSNNotInListExeption.h"
+
+1512592523 source:c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\src\exceptions\ssnyearnotinlistexeption.cpp
+	"SSNYearNotInListExeption.h"
+
+1512592523 c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\include\exceptions\ssnyearnotinlistexeption.h
+
+1512593790 c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\include\exceptions\yearnotinlistexeption.h
+
+1512593790 source:c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\src\exceptions\yearnotinlistexeption.cpp
+	"YearNotInListExeption.h"
+

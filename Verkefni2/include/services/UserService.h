@@ -7,6 +7,8 @@
 #include "InvalidMonthException.h"
 #include "InvalidYearException.h"
 #include "SalaryListChangedException.h"
+#include "SSNNotInListExeption.h"
+#include "YearNotInListExeption.h"
 #include <iostream>
 #include <string>
 #include <stdlib.h>
@@ -27,10 +29,10 @@ class UserService
         int isValidYear(string year);
 
         bool addSalary(const Employee &employee);
+        bool checkYear(int year);
+        bool checkSSN(string SSN);
         vector<Employee> printSalaryList();
         vector<Employee> getSSNRecords(string SSN);
-        vector<Employee> getSSNYearRecords(string SSN, int year);
-        bool checkYear(int year);
         Employee getHighestEmployee(int year);
 
     private:

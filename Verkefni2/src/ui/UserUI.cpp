@@ -8,15 +8,16 @@ UserUI::UserUI()
 
 void UserUI::startUI() {
     char answer = '0';
-    while (answer != '5') {
+    while (answer != '6') {
         cout << "Welcome user" << endl;
         cout << "Choose an option" << endl;
         cout << "----------------" << endl;
         cout << "1: Add salary record" << endl;
         cout << "2: Print out records for given SSN" << endl;
         cout << "3: Print out records for given SSN and year" << endl;
-        cout << "4: Print out employee with highest salary of given year" << endl;
-        cout << "5: Quit" << endl;
+        cout << "4: Print out employee with highest salary for given year" << endl;
+        cout << "5: Print all salary records" << endl;
+        cout << "6: Quit" << endl;
 
         cin >> answer;
         switch(answer) {
@@ -24,9 +25,11 @@ void UserUI::startUI() {
             break;
             case '2': printRecordSSN();
             break;
-            case '3': printRecordYear();
+            case '3': printRecordSSNYear();
             break;
             case '4': printHighest();
+            break;
+            case '5': printAllRecords();
             break;
             default: cout << "Option invalid" << endl;
         }
@@ -120,9 +123,7 @@ void UserUI::addSalary() {
         cout << ", year " << employee.getYear() << " has been changed" << endl;
         cout << endl;
     }
-    userServ.printSalaryList();
 }
-
 
 void UserUI::printRecordSSN() {
     string SSN;
@@ -130,42 +131,49 @@ void UserUI::printRecordSSN() {
     cout << "Enter SSN/kennitala: ";
     cin >> ws;
     getline(cin, SSN);
-    vector<Employee> SSNSalaryList = userServ.getSSNRecords(SSN);
 
-    for (int i = 0; i < SSNSalaryList.size(); i++) {
+    try {
+        bool valid = userServ.checkSSN(SSN);
+        vector<Employee> SSNSalaryList = userServ.getSSNRecords(SSN);
+        for (int i = 0; i < SSNSalaryList.size(); i++) {
         cout << SSNSalaryList[i];
+        }
+    }
+    catch(SSNNotInListExeption) {
+        cout << "This SSN is not in the list" << endl;
     }
 }
 
-void UserUI::printRecordYear() {
-    cout << "Print records given SSN and year" << endl;
+void UserUI::printRecordSSNYear() {
     string SSN;
     int year;
+    cout << "Print records for given SSN and year" << endl;
     cout << "Enter SSN/kennitala: ";
     cin >> ws;
     getline(cin, SSN);
-    cout << "Enter Year: ";
+    cout << "Enter year ";
     cin >> year;
-
-    vector<Employee> SSNYearSalaryList = userServ.getSSNYearRecords(SSN, year);
-
-    for (int i = 0; i < SSNYearSalaryList.size(); i++) {
-        cout << SSNYearSalaryList[i];
-    }
 }
 
 void UserUI::printHighest() {
     int year;
-    cout << "Highest Salary" << endl;
+    cout << "Highest Salary for given year" << endl;
     cout << "Choose a year: ";
     cin >> year;
-    bool valid = userServ.checkYear(year);
-    if (valid) {
+    try {
+        bool valid = userServ.checkYear(year);
         Employee highestEmployee = userServ.getHighestEmployee(year);
         cout << highestEmployee << endl;
     }
-    else {
-        cout << "This year is not in the list" << endl;
+    catch(YearNotInListExeption) {
+        cout << "This year is not on the list" << endl;
     }
+}
 
+void UserUI::printAllRecords() {
+    vector<Employee> salaryList = userServ.printSalaryList();
+
+    for (int i = 0; i < salaryList.size(); i++) {
+        cout << salaryList[i] << endl;
+    }
 }

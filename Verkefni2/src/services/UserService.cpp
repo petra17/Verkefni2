@@ -116,16 +116,29 @@ vector<Employee> UserService::getSSNRecords(string SSN) {
     return SSNRecordList;
 }
 
-vector<Employee> UserService::getSSNYearRecords(string SSN, int year) {
+Employee UserService::getHighestEmployee(int year) {
+     vector<Employee> salaryList = userRep.getSalaryList();
+     Employee highestEmployee;
+
+     for (int i = 0; i < salaryList.size(); i++) {
+        if (salaryList[i].getYear() == year) {
+            if (salaryList[i].getMonthSalary() > highestEmployee.getMonthSalary()) {
+                highestEmployee = salaryList[i];
+            }
+        }
+     }
+     return highestEmployee;
+}
+
+bool UserService::checkSSN(string SSN) {
     vector<Employee> salaryList = userRep.getSalaryList();
-    vector<Employee> SSNYearRecordList;
 
     for (int i = 0; i < salaryList.size(); i++) {
-        if (salaryList[i].getSSN() == SSN && salaryList[i].getYear() == year) {
-            SSNYearRecordList.push_back(salaryList[i]);
+        if (salaryList[i].getSSN() == SSN) {
+            return true;
         }
-    }
-    return SSNYearRecordList;
+     }
+     throw SSNNotInListExeption();
 }
 
 bool UserService::checkYear(int year) {
@@ -136,17 +149,5 @@ bool UserService::checkYear(int year) {
             return true;
         }
      }
-     return false;
-}
-
-Employee UserService::getHighestEmployee(int year) {
-     vector<Employee> salaryList = userRep.getSalaryList();
-     Employee highestEmployee = salaryList[0];
-
-     for (int i = 0; i < salaryList.size(); i++) {
-        if (salaryList[i].getMonthSalary() > highestEmployee.getMonthSalary()) {
-            highestEmployee = salaryList[i];
-        }
-     }
-     return highestEmployee;
+    throw YearNotInListExeption();
 }

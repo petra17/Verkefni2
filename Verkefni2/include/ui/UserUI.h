@@ -14,10 +14,9 @@ class UserUI
 
         void addSalary();
         void printRecordSSN();
-        void printRecordYear();
+        void printRecordSSNYear();
         void printHighest();
-
-        void printSalaryList();
+        void printAllRecords();
 };
 
 #endif // USERUI_H
