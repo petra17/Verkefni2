@@ -61,7 +61,6 @@ ostream &operator << (ostream &out, Employee &employee) {
 }
 
 bool operator == (const Employee &left_emp, const Employee &right_emp) {
-    if (left_emp.name == right_emp.name) {
         if (left_emp.SSN == right_emp.SSN) {
             if (left_emp.month == right_emp.month) {
                 if (left_emp.year == right_emp.year) {
@@ -69,7 +68,6 @@ bool operator == (const Employee &left_emp, const Employee &right_emp) {
                 }
             }
         }
-    }
     return false;
 }
 

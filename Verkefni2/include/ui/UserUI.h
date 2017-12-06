@@ -2,6 +2,7 @@
 #define USERUI_H
 #include "UserService.h"
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
 class UserUI

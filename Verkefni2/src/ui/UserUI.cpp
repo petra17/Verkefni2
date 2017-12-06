@@ -47,7 +47,7 @@ void UserUI::addSalary() {
     int month;
     int year;
 
-    cout << "----Add Salary----" << endl;
+    cout << "------Add Salary------" << endl;
     while(!allowed){
         cout << "Name: ";
         cin >> ws;
@@ -127,7 +127,7 @@ void UserUI::addSalary() {
 
 void UserUI::printRecordSSN() {
     string SSN;
-    cout << "Print records given SSN" << endl;
+    cout << "----Print records given SSN----" << endl;
     cout << "Enter SSN/kennitala: ";
     cin >> ws;
     getline(cin, SSN);
@@ -142,6 +142,7 @@ void UserUI::printRecordSSN() {
     catch(SSNNotInListExeption) {
         cout << "This SSN is not in the list" << endl;
     }
+    cout << "-------------------------------" << endl;
 }
 
 void UserUI::printRecordSSNYear() {
@@ -157,7 +158,7 @@ void UserUI::printRecordSSNYear() {
 
 void UserUI::printHighest() {
     int year;
-    cout << "Highest Salary for given year" << endl;
+    cout << "--------Highest Salary-------" << endl;
     cout << "Choose a year: ";
     cin >> year;
     try {
@@ -168,12 +169,15 @@ void UserUI::printHighest() {
     catch(YearNotInListExeption) {
         cout << "This year is not on the list" << endl;
     }
+    cout << "------------------------------" << endl;
 }
 
 void UserUI::printAllRecords() {
+    cout << "---------Salary List----------" << endl;
     vector<Employee> salaryList = userServ.printSalaryList();
 
     for (int i = 0; i < salaryList.size(); i++) {
-        cout << salaryList[i] << endl;
+        cout << salaryList[i];
     }
+    cout << "------------------------------" << endl;
 }
