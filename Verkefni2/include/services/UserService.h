@@ -28,6 +28,10 @@ class UserService
 
         bool addSalary(const Employee &employee);
         vector<Employee> printSalaryList();
+        vector<Employee> getSSNRecords(string SSN);
+        vector<Employee> getSSNYearRecords(string SSN, int year);
+        bool checkYear(int year);
+        Employee getHighestEmployee(int year);
 
     private:
         UserRep userRep;
