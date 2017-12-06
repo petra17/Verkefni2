@@ -5,7 +5,7 @@ Employee::Employee()
     //ctor
 }
 
-Employee::Employee(string name, string SSN, string month_salary, int month, int year) {
+Employee::Employee(string name, string SSN, int month_salary, int month, int year) {
     this->name = name;
     this->SSN = SSN;
     this->month_salary = month_salary;
@@ -23,7 +23,7 @@ void Employee::write(ofstream& fout) const {
     fout.write((char*)(&strLen1), sizeof(int));
     fout.write(SSN.c_str(), strLen1);
 
-    fout.write((char*)(&month_salary), sizeof(double));
+    fout.write((char*)(&month_salary), sizeof(int));
     fout.write((char*)(&month), sizeof(int));
     fout.write((char*)(&year), sizeof(int));
 }
@@ -39,10 +39,10 @@ void Employee::read(ifstream& fin) {
     int strLen1 = SSN.length();
     fin.read((char*)(&strLen1), sizeof(int));
     char *str1 = new char[strLen1];
-    fin.read(str, strLen1);
+    fin.read(str1, strLen1);
     SSN = str1;
 
-    fin.read((char*)(&month_salary), sizeof(double));
+    fin.read((char*)(&month_salary), sizeof(int));
     fin.read((char*)(&month), sizeof(int));
     fin.read((char*)(&year), sizeof(int));
 
@@ -51,13 +51,43 @@ void Employee::read(ifstream& fin) {
 }
 
 ostream &operator << (ostream &out, Employee &employee) {
-    out << "Name: " << employee.name << endl;
-    out << "SSN: " << employee.SSN << endl;
-    out << "Month's Salary: " << employee.month_salary << endl;
-    out << "Month: " << employee.month << endl;
+    out << "Name: " << employee.name << " ";
+    out << "SSN: " << employee.SSN << " ";
+    out << "Month's Salary: " << employee.month_salary << " ";
+    out << "Month: " << employee.month << " ";
     out << "Year: " << employee.year << endl;
 
     return out;
 }
+
+bool operator == (const Employee &left_emp, const Employee &right_emp) {
+    if (left_emp.name == right_emp.name) {
+        if (left_emp.SSN == right_emp.SSN) {
+            if (left_emp.month == right_emp.month) {
+                if (left_emp.year == right_emp.year) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+string Employee::getName() {
+    return this->name;
+}
+string Employee::getSSN() {
+    return this->SSN;
+}
+int Employee::getMonthSalary() {
+    return this->month_salary;
+}
+int Employee::getMonth() {
+    return this->month;
+}
+int Employee::getYear() {
+    return this->year;
+}
+
 
 

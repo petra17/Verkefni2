@@ -1,0 +1,9 @@
+#ifndef SALARYLISTCHANGEDEXCEPTION_H
+#define SALARYLISTCHANGEDEXCEPTION_H
+
+
+class SalaryListChangedException
+{
+};
+
+#endif // SALARYLISTCHANGEDEXCEPTION_H

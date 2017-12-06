@@ -1,10 +1,12 @@
 #ifndef USERSERVICE_H
 #define USERSERVICE_H
+#include "UserRep.h"
 #include "invalidSNNExeption.h"
 #include "InvalidNameException.h"
 #include "InvalidSalaryException.h"
 #include "InvalidMonthException.h"
 #include "InvalidYearException.h"
+#include "SalaryListChangedException.h"
 #include <iostream>
 #include <string>
 #include <stdlib.h>
@@ -23,9 +25,12 @@ class UserService
         int convertToInt(string integer);
         int isValidMonth(string month) ;
         int isValidYear(string year);
-    protected:
+
+        bool addSalary(const Employee &employee);
+        vector<Employee> printSalaryList();
 
     private:
+        UserRep userRep;
 };
 
 #endif // USERSERVICE_H

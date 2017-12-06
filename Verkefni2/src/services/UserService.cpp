@@ -80,8 +80,27 @@ int UserService::isValidYear(string year) {
         }
     }
     intYear = convertToInt(year);
-    if(intYear > 2017){
+    if(intYear < 1900 || intYear > 2017){
         throw InvalidYearException();
     }
     return intYear;
+}
+
+bool UserService::addSalary(const Employee &employee) {
+    vector<Employee> salaryList = userRep.getSalaryList();
+
+    for (int i = 0; i < salaryList.size(); i++){
+        if (salaryList[i] == employee) {
+            salaryList[i] = employee;
+            userRep.changeSalaryList(salaryList);
+            throw SalaryListChangedException();
+        }
+    }
+    userRep.addSalary(employee);
+    return true;
+}
+
+vector<Employee> UserService::printSalaryList() {
+    vector<Employee> salaryList = userRep.getSalaryList();
+    return salaryList;
 }

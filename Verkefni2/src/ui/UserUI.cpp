@@ -109,10 +109,26 @@ void UserUI::addSalary() {
         }
 
     }
-    //Employee employee(name, SSN, monthSalary1, month, year);
-    //cout << employee << endl;
+    Employee employee(name, SSN, monthSalary, month, year);
 
+    try {
+        userServ.addSalary(employee);
+    }
+    catch(SalaryListChangedException) {
+        cout << endl;
+        cout << "Salary for " << employee.getName() << " in month " << employee.getMonth();
+        cout << ", year " << employee.getYear() << " has been changed" << endl;
+        cout << endl;
+    }
+    printSalaryList();
+}
 
+void UserUI::printSalaryList() {
+    cout << "Salary List" << endl;
+    vector<Employee> salaryList = userServ.printSalaryList();
+    for (unsigned int i = 0; i < salaryList.size(); i++) {
+        cout << salaryList[i] << endl;
+    }
 }
 
 void UserUI::printRecordSSN() {
