@@ -11,13 +11,13 @@ class Employee
     private:
         string name;
         string SSN;
-        double month_salary;
+        string month_salary;
         int month;
         int year;
 
     public:
         Employee();
-        Employee(string name, string SSN, double month_salary, int month, int year);
+        Employee(string name, string SSN, string month_salary, int month, int year);
         void write(ofstream& fout) const;
         void read(ifstream& fin);
 

@@ -17,7 +17,7 @@ class UserService
         bool isValidName(string name);
         void fixSNN(string& kennitala);
         bool isValidSNN(string kennitala);
-        bool isValidSalary(string salary);
+        bool isValidSalary(int salary);
         bool isValidMonth(int month) ;
     protected:
 

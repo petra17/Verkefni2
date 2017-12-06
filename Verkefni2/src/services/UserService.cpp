@@ -42,9 +42,9 @@ bool UserService::isValidSNN(string kennitala) {
     return true;
 }
 
-bool UserService::isValidSalary(string salary) {
-    for(unsigned int i = 0; i < salary.length(); i++){
-        if(!isdigit(salary[i])){
+bool UserService::isValidSalary(int salary) {
+    for(unsigned int i = 0; i < salary; i++){
+        if(cin.bad()){
              throw InvalidSalaryException();
         }
     }

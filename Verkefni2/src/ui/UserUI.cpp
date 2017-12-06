@@ -37,7 +37,7 @@ void UserUI::addSalary() {
     bool allowed = false;
     string name;
     string SSN;
-    string monthSalary1;
+    int monthSalary1;
     int monthSalary;
     int month;
     int year;
@@ -94,8 +94,8 @@ void UserUI::addSalary() {
         cout << "Year: ";
         cin >> year;
 
-    Employee employee(name, SSN, monthSalary1, month, year);
-    cout << employee << endl;
+    //Employee employee(name, SSN, monthSalary1, month, year);
+    //cout << employee << endl;
 
 
 }

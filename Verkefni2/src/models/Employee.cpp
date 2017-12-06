@@ -5,7 +5,7 @@ Employee::Employee()
     //ctor
 }
 
-Employee::Employee(string name, string SSN, double month_salary, int month, int year) {
+Employee::Employee(string name, string SSN, string month_salary, int month, int year) {
     this->name = name;
     this->SSN = SSN;
     this->month_salary = month_salary;
