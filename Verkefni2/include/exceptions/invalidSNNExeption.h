@@ -1,0 +1,7 @@
+#ifndef INVALIDSNNEXEPTION_H
+#define INVALIDSNNEXEPTION_H
+
+
+class invalidSNNExeption{ };
+
+#endif // INVALIDSNNEXEPTION_H
