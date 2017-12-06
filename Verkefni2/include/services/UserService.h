@@ -4,8 +4,10 @@
 #include "InvalidNameException.h"
 #include "InvalidSalaryException.h"
 #include "InvalidMonthException.h"
+#include "InvalidYearException.h"
 #include <iostream>
 #include <string>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -17,8 +19,10 @@ class UserService
         bool isValidName(string name);
         void fixSNN(string& kennitala);
         bool isValidSNN(string kennitala);
-        bool isValidSalary(int salary);
-        bool isValidMonth(int month) ;
+        int isValidSalary(string salary);
+        int convertToInt(string integer);
+        int isValidMonth(string month) ;
+        int isValidYear(string year);
     protected:
 
     private:

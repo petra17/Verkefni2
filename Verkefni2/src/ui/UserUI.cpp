@@ -37,7 +37,9 @@ void UserUI::addSalary() {
     bool allowed = false;
     string name;
     string SSN;
-    int monthSalary1;
+    string monthSalary1;
+    string month1;
+    string year1;
     int monthSalary;
     int month;
     int year;
@@ -71,9 +73,10 @@ void UserUI::addSalary() {
     allowed = false;
     while(!allowed){
         cout << "Month's Salary: ";
-        cin >> monthSalary;
+        cin >> monthSalary1;
         try{
-            allowed = userServ.isValidSalary(monthSalary1);
+            monthSalary = userServ.isValidSalary(monthSalary1);
+            allowed = true;
         }
         catch(InvalidSalaryException){
             cout << "Invalid salary kopboii" << endl;
@@ -82,18 +85,30 @@ void UserUI::addSalary() {
     allowed = false;
     while(!allowed){
         cout << "Month: ";
-        cin >> month;
+        cin >> month1;
         try{
-            allowed = userServ.isValidMonth(month);
+            month = userServ.isValidMonth(month1);
+            allowed = true;
         }
         catch(InvalidMonthException){
             cout << "Invalid month kopboii" << endl;
         }
 
     }
-        cout << "Year: ";
-        cin >> year;
 
+    allowed = false;
+    while(!allowed){
+        cout << "Year: ";
+        cin >> year1;
+        try{
+            year = userServ.isValidYear(year1);
+            allowed = true;
+        }
+        catch(InvalidYearException){
+            cout << "Invalid Year kopboii" << endl;
+        }
+
+    }
     //Employee employee(name, SSN, monthSalary1, month, year);
     //cout << employee << endl;
 
