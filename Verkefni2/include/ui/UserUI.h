@@ -14,17 +14,16 @@ class UserUI
         void startUI();
 
         void addSalary();
+        void printRecordSSN();
+        void printRecordSSNYear();
+        void printHighest();
+        void printAllRecords();
 
         string validName();
         string validSSN();
         int validMonthSalary();
         int validMonth();
         int validYear();
-
-        void printRecordSSN();
-        void printRecordSSNYear();
-        void printHighest();
-        void printAllRecords();
 };
 
 #endif // USERUI_H

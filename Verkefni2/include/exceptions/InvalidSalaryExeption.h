@@ -1,7 +1,0 @@
-#ifndef INVALIDSALARYEXEPTION_H
-#define INVALIDSALARYEXEPTION_H
-
-
-class InvalidSalaryExeption{ };
-
-#endif // INVALIDSALARYEXEPTION_H
