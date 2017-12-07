@@ -11,7 +11,7 @@ void UserUI::startUI() {
     while (answer != '6') {
         cout << "Welcome user" << endl;
         cout << "Choose an option" << endl;
-        cout << "----------------" << endl;
+        cout << "--------------------------------------------------------" << endl;
         cout << "1: Add salary record" << endl;
         cout << "2: Print out records for given SSN" << endl;
         cout << "3: Print out records for given SSN and year" << endl;
@@ -31,6 +31,8 @@ void UserUI::startUI() {
             break;
             case '5': printAllRecords();
             break;
+            case '6':
+            break;
             default: cout << "Option invalid" << endl;
         }
     }
@@ -39,7 +41,7 @@ void UserUI::startUI() {
 void UserUI::addSalary() {
     bool allowed = false;
 
-    cout << "------Add Salary------" << endl;
+    cout << "-----------------------Add Salary-----------------------" << endl;
     string name = validName();
     string SSN = validSSN();
     int monthSalary = validMonthSalary();
@@ -61,7 +63,8 @@ void UserUI::addSalary() {
 
 void UserUI::printRecordSSN() {
 
-    cout << "----Print records given SSN----" << endl;
+    cout << "----------------Print records given SSN-----------------" << endl;
+
     string SSN = validSSN();
 
     try {
@@ -74,7 +77,7 @@ void UserUI::printRecordSSN() {
     catch(SSNNotInListExeption) {
         cout << "No salary from this SSN" << endl;
     }
-    cout << "-------------------------------" << endl;
+    cout << "--------------------------------------------------------" << endl;
 }
 
 void UserUI::printRecordSSNYear() {
@@ -93,34 +96,34 @@ void UserUI::printRecordSSNYear() {
     catch(SSNYearNotInListExeption) {
         cout << "No salary from this SSN and year" << endl;
     }
-    cout << "----------------------------------------" << endl;
+    cout << "--------------------------------------------------------" << endl;
 }
 
 void UserUI::printHighest() {
 
-    cout << "--------Highest Salary-------" << endl;
+    cout << "---------------------Highest Salary---------------------" << endl;
     int year = validYear();
 
     try {
         bool valid = userServ.checkYear(year);
         Employee highestEmp = userServ.getHighestEmployee(year);
-        cout << highestEmp << endl;
+        cout << highestEmp;
     }
     catch(YearNotInListExeption) {
         cout << "No salary from this year" << endl;
     }
-    cout << "------------------------------" << endl;
+    cout << "--------------------------------------------------------" << endl;
 }
 
 
 void UserUI::printAllRecords() {
-    cout << "---------Salary List----------" << endl;
+    cout << "----------------------Salary List-----------------------" << endl;
     vector<Employee> salaryList = userServ.printSalaryList();
 
     for (int i = 0; i < salaryList.size(); i++) {
         cout << salaryList[i];
     }
-    cout << "------------------------------" << endl;
+    cout << "--------------------------------------------------------" << endl;
 }
 
 string UserUI::validName() {
