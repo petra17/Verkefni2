@@ -57,10 +57,6 @@ int UserService::isValidSalary(string salary) {
     return intSalary;
 }
 
-int UserService::turnToInt(string integer) {
-    return atoi(integer.c_str());
-}
-
 int UserService::isValidMonth(string month) {
     int intMonth = 0;
     for(unsigned int i = 0; i < month.length(); i++){

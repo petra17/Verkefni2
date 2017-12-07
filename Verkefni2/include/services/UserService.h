@@ -32,7 +32,6 @@ class UserService
         int isValidYear(string year);
 
         bool addSalary(const Employee &employee);
-        int turnToInt(string integer);
 
         bool checkYear(int year);
         bool checkSSN(string SSN);
