@@ -8,7 +8,7 @@ void UserService::fixName(string& name) {
 
     for(unsigned int i = 0; i < name.length(); i++){
         if(name[i] != ' ' && isupper(name[i])){
-            tolower(name[i]);
+            name[i] = tolower(name[i]);
         }
     }
 }
@@ -49,15 +49,18 @@ int UserService::isValidSalary(string salary) {
             throw InvalidSalaryException();
         }
     }
-    intSalary = convertToInt(salary);
-    if(intSalary < 150000 || intSalary > 1500000){
+    intSalary = atoi(salary.c_str());
+
+    if(intSalary < 100000 || intSalary > 2000000){
         throw InvalidSalaryException();
     }
     return intSalary;
 }
-int UserService::convertToInt(string integer){
+
+int UserService::turnToInt(string integer) {
     return atoi(integer.c_str());
 }
+
 int UserService::isValidMonth(string month) {
     int intMonth = 0;
     for(unsigned int i = 0; i < month.length(); i++){
@@ -65,7 +68,7 @@ int UserService::isValidMonth(string month) {
             throw InvalidMonthException();
         }
     }
-    intMonth = convertToInt(month);
+    intMonth = atoi(month.c_str());
     if(intMonth < 1 || intMonth > 12){
         throw InvalidMonthException();
     }
@@ -79,7 +82,8 @@ int UserService::isValidYear(string year) {
             throw InvalidYearException();
         }
     }
-    intYear = convertToInt(year);
+    intYear = atoi(year.c_str());
+
     if(intYear < 1900 || intYear > 2017){
         throw InvalidYearException();
     }
@@ -117,6 +121,7 @@ vector<Employee> UserService::getSSNRecords(string SSN) {
 }
 
 Employee UserService::getHighestEmployee(int year) {
+
      vector<Employee> salaryList = userRep.getSalaryList();
      Employee highestEmployee;
 

@@ -48,7 +48,10 @@
 		<Unit filename="include/exceptions/InvalidSalaryException.h" />
 		<Unit filename="include/exceptions/InvalidSalaryExeption.h" />
 		<Unit filename="include/exceptions/InvalidYearException.h" />
+		<Unit filename="include/exceptions/SSNNotInListExeption.h" />
+		<Unit filename="include/exceptions/SSNYearNotInListExeption.h" />
 		<Unit filename="include/exceptions/SalaryListChangedException.h" />
+		<Unit filename="include/exceptions/YearNotInListExeption.h" />
 		<Unit filename="include/exceptions/invalidSNN.h" />
 		<Unit filename="include/exceptions/invalidSNNExeption.h" />
 		<Unit filename="include/models/Employee.h" />
@@ -62,7 +65,10 @@
 		<Unit filename="src/exceptions/InvalidSalaryException.cpp" />
 		<Unit filename="src/exceptions/InvalidSalaryExeption.cpp" />
 		<Unit filename="src/exceptions/InvalidYearException.cpp" />
+		<Unit filename="src/exceptions/SSNNotInListExeption.cpp" />
+		<Unit filename="src/exceptions/SSNYearNotInListExeption.cpp" />
 		<Unit filename="src/exceptions/SalaryListChangedException.cpp" />
+		<Unit filename="src/exceptions/YearNotInListExeption.cpp" />
 		<Unit filename="src/exceptions/invalidSNN.cpp" />
 		<Unit filename="src/exceptions/invalidSNNExeption.cpp" />
 		<Unit filename="src/models/Employee.cpp" />

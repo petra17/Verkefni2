@@ -28,8 +28,6 @@ class Employee
         int getMonthSalary();
         int getMonth();
         int getYear();
-
-
 };
 
 #endif // EMPLOYEE_H

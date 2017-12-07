@@ -13,10 +13,14 @@
 #include <string>
 #include <stdlib.h>
 
+
 using namespace std;
 
 class UserService
 {
+    private:
+        UserRep userRep;
+
     public:
         UserService();
         void fixName(string& name);
@@ -24,19 +28,17 @@ class UserService
         void fixSNN(string& kennitala);
         bool isValidSNN(string kennitala);
         int isValidSalary(string salary);
-        int convertToInt(string integer);
         int isValidMonth(string month) ;
         int isValidYear(string year);
 
         bool addSalary(const Employee &employee);
+        int turnToInt(string integer);
+
         bool checkYear(int year);
         bool checkSSN(string SSN);
         vector<Employee> printSalaryList();
         vector<Employee> getSSNRecords(string SSN);
         Employee getHighestEmployee(int year);
-
-    private:
-        UserRep userRep;
 };
 
 #endif // USERSERVICE_H

@@ -38,80 +38,14 @@ void UserUI::startUI() {
 
 void UserUI::addSalary() {
     bool allowed = false;
-    string name;
-    string SSN;
-    string monthSalary1;
-    string month1;
-    string year1;
-    int monthSalary;
-    int month;
-    int year;
 
     cout << "------Add Salary------" << endl;
-    while(!allowed){
-        cout << "Name: ";
-        cin >> ws;
-        getline(cin, name);
-        userServ.fixName(name);
-        try{
-            allowed = userServ.isValidName(name);
-        }
-        catch(InvalidNameException){
-            cout << "Invalid name kopboii" << endl;
-        }
-    }
-    allowed = false;
-    while(!allowed){
-        cout << "SSN/kennitala: ";
-        cin >> ws;
-        getline(cin, SSN);
-        userServ.fixSNN(SSN);
-        try{
-            allowed = userServ.isValidSNN(SSN);
-        }
-        catch(invalidSNNExeption){
-            cout << "Invalid SNN kopboii" << endl;
-        }
-    }
-    allowed = false;
-    while(!allowed){
-        cout << "Month's Salary: ";
-        cin >> monthSalary1;
-        try{
-            monthSalary = userServ.isValidSalary(monthSalary1);
-            allowed = true;
-        }
-        catch(InvalidSalaryException){
-            cout << "Invalid salary kopboii" << endl;
-        }
-    }
-    allowed = false;
-    while(!allowed){
-        cout << "Month: ";
-        cin >> month1;
-        try{
-            month = userServ.isValidMonth(month1);
-            allowed = true;
-        }
-        catch(InvalidMonthException){
-            cout << "Invalid month kopboii" << endl;
-        }
+    string name = validName();
+    string SSN = validSSN();
+    int monthSalary = validMonthSalary();
+    int month = validMonth();
+    int year = validYear();
 
-    }
-
-    allowed = false;
-    while(!allowed){
-        cout << "Year: ";
-        cin >> year1;
-        try{
-            year = userServ.isValidYear(year1);
-            allowed = true;
-        }
-        catch(InvalidYearException){
-            cout << "Invalid Year kopboii" << endl;
-        }
-
-    }
     Employee employee(name, SSN, monthSalary, month, year);
 
     try {
@@ -125,12 +59,104 @@ void UserUI::addSalary() {
     }
 }
 
+string UserUI::validName() {
+    string name = "";
+    bool allowed = false;
+    while(!allowed){
+        cout << "Name: ";
+        cin >> ws;
+        getline(cin, name);
+        userServ.fixName(name);
+        try{
+            allowed = userServ.isValidName(name);
+        }
+        catch(InvalidNameException){
+            cout << "Invalid name kopboii" << endl;
+        }
+    }
+    return name;
+}
+
+string UserUI::validSSN() {
+
+    string SSN = "";
+    bool allowed = false;
+    while(!allowed){
+        cout << "SSN/kennitala: ";
+        cin >> ws;
+        getline(cin, SSN);
+        userServ.fixSNN(SSN);
+        try{
+            allowed = userServ.isValidSNN(SSN);
+        }
+        catch(invalidSNNExeption){
+            cout << "Invalid SNN kopboii" << endl;
+        }
+    }
+    return SSN;
+}
+
+int UserUI::validMonthSalary() {
+    string monthSalary1 = "";
+    int monthSalary = 0;
+    bool allowed = false;
+
+    while(!allowed){
+        cout << "Month's Salary: ";
+        cin >> monthSalary1;
+        try{
+            monthSalary = userServ.isValidSalary(monthSalary1);
+            allowed = true;
+        }
+        catch(InvalidSalaryException){
+            cout << "Invalid salary kopboii" << endl;
+        }
+    }
+    return monthSalary;
+}
+
+int UserUI::validMonth() {
+    string month1 = "";
+    int month = 0;
+    bool allowed = false;
+
+    while(!allowed){
+        cout << "Month: ";
+        cin >> month1;
+        try{
+            month = userServ.isValidMonth(month1);
+            allowed = true;
+        }
+        catch(InvalidMonthException){
+            cout << "Invalid month kopboii" << endl;
+        }
+    }
+    return month;
+}
+
+int UserUI::validYear() {
+    string year1 = "";
+    int year = 0;
+    bool allowed = false;
+
+    while(!allowed){
+        cout << "Year: ";
+        cin >> year1;
+        try{
+            year = userServ.isValidYear(year1);
+            allowed = true;
+        }
+        catch(InvalidYearException){
+            cout << "Invalid Year kopboii" << endl;
+        }
+    }
+    return year;
+}
+
 void UserUI::printRecordSSN() {
-    string SSN;
+
     cout << "----Print records given SSN----" << endl;
-    cout << "Enter SSN/kennitala: ";
-    cin >> ws;
-    getline(cin, SSN);
+    string SSN = validSSN();
 
     try {
         bool valid = userServ.checkSSN(SSN);
@@ -146,31 +172,29 @@ void UserUI::printRecordSSN() {
 }
 
 void UserUI::printRecordSSNYear() {
-    string SSN;
-    int year;
-    cout << "Print records for given SSN and year" << endl;
-    cout << "Enter SSN/kennitala: ";
-    cin >> ws;
-    getline(cin, SSN);
-    cout << "Enter year ";
-    cin >> year;
+
+    cout << "--Print records for given SSN and year--" << endl;
+    string SSN = validSSN();
+    int year = validYear();
+    cout << "----------------------------------------" << endl;
 }
 
 void UserUI::printHighest() {
-    int year;
+
     cout << "--------Highest Salary-------" << endl;
-    cout << "Choose a year: ";
-    cin >> year;
+    int year = validYear();
+
     try {
         bool valid = userServ.checkYear(year);
-        Employee highestEmployee = userServ.getHighestEmployee(year);
-        cout << highestEmployee << endl;
+        Employee highestEmp = userServ.getHighestEmployee(year);
+        cout << highestEmp << endl;
     }
     catch(YearNotInListExeption) {
-        cout << "This year is not on the list" << endl;
+        cout << "No salary from this year" << endl;
     }
     cout << "------------------------------" << endl;
 }
+
 
 void UserUI::printAllRecords() {
     cout << "---------Salary List----------" << endl;

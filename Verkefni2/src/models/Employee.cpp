@@ -2,7 +2,11 @@
 
 Employee::Employee()
 {
-    //ctor
+    this->name = "";
+    this->SSN = "";
+    this->month_salary = 0;
+    this->month = 0;
+    this->year = 0;
 }
 
 Employee::Employee(string name, string SSN, int month_salary, int month, int year) {
