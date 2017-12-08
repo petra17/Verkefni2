@@ -7,7 +7,7 @@ UserService::UserService() {
 bool UserService::addSalary(const Employee &employee) {
     vector<Employee> salaryList = userRep.getSalaryList();
 
-    for (int i = 0; i < salaryList.size(); i++){
+    for (unsigned int i = 0; i < salaryList.size(); i++){
         if (salaryList[i] == employee) {
             salaryList[i] = employee;
             userRep.changeSalaryList(salaryList);
@@ -21,7 +21,7 @@ bool UserService::addSalary(const Employee &employee) {
 vector<Employee> UserService::getSSNRecords(string SSN) {
     vector<Employee> salaryList = userRep.getSalaryList();
     vector<Employee> SSNRecordList;
-    for (int i = 0; i < salaryList.size(); i++) {
+    for (unsigned int i = 0; i < salaryList.size(); i++) {
         if (salaryList[i].getSSN() == SSN) {
             SSNRecordList.push_back(salaryList[i]);
         }
@@ -32,7 +32,7 @@ vector<Employee> UserService::getSSNRecords(string SSN) {
 vector<Employee> UserService::getSSNYearRecords(string SSN, int year) {
     vector<Employee> salaryList = userRep.getSalaryList();
     vector<Employee> SSNYearRecordList;
-    for (int i = 0; i < salaryList.size(); i++) {
+    for (unsigned int i = 0; i < salaryList.size(); i++) {
         if (salaryList[i].getSSN() == SSN && salaryList[i].getYear() == year) {
             SSNYearRecordList.push_back(salaryList[i]);
         }
@@ -42,24 +42,46 @@ vector<Employee> UserService::getSSNYearRecords(string SSN, int year) {
 
 Employee UserService::getHighestEmployee(int year) {
 
-     vector<Employee> salaryList = userRep.getSalaryList();
-     Employee highestEmployee;
+    vector<Employee> employeeList;
+    vector<Employee> salaryList = userRep.getSalaryList();
 
-     for (int i = 0; i < salaryList.size(); i++) {
+    for (unsigned int i = 0; i < salaryList.size(); i++) {
         if (salaryList[i].getYear() == year) {
-            if (salaryList[i].getMonthSalary() > highestEmployee.getMonthSalary()) {
-                highestEmployee = salaryList[i];
+            if(notFound(salaryList[i].getName(),employeeList)){
+                employeeList.push_back(salaryList[i]);
             }
         }
-     }
-     return highestEmployee;
+    }
+    for (unsigned int i = 0; i < employeeList.size(); i++) {
+        for (unsigned int j = 0; j < salaryList.size(); j++) {
+            if(salaryList[j].getName() == employeeList[i].getName()){
+                if(salaryList[j].getYear() == year){
+                    employeeList[i].setYearSalary(salaryList[j].getMonthSalary());
+                }
+            }
+        }
+    }
+    Employee highestEmployee = employeeList[0];
+    for (unsigned int i = 1; i < employeeList.size(); i++) {
+        if(employeeList[i].getYearSalary() > highestEmployee.getYearSalary()){
+            highestEmployee = employeeList[i];
+        }
+    }
+    return highestEmployee;
 }
 
 vector<Employee> UserService::printSalaryList() {
     vector<Employee> salaryList = userRep.getSalaryList();
     return salaryList;
 }
-
+bool UserService::notFound(string name, vector<Employee> set){
+    for(unsigned int i = 0; i < set.size(); i++){
+		if(set[i].getName() == name){
+			return false;
+		}
+	}
+	return true;
+}
 
 
 void UserService::fixName(string& name) {
@@ -151,7 +173,7 @@ int UserService::isValidYear(string year) {
 bool UserService::checkSSN(string SSN) {
     vector<Employee> salaryList = userRep.getSalaryList();
 
-    for (int i = 0; i < salaryList.size(); i++) {
+    for (unsigned int i = 0; i < salaryList.size(); i++) {
         if (salaryList[i].getSSN() == SSN) {
             return true;
         }
@@ -162,7 +184,7 @@ bool UserService::checkSSN(string SSN) {
 bool UserService::checkSSNYear(string SSN, int year) {
     vector<Employee> salaryList = userRep.getSalaryList();
 
-    for (int i = 0; i < salaryList.size(); i++) {
+    for (unsigned int i = 0; i < salaryList.size(); i++) {
         if (salaryList[i].getSSN() == SSN && salaryList[i].getYear() == year) {
             return true;
         }
@@ -174,7 +196,7 @@ bool UserService::checkSSNYear(string SSN, int year) {
 bool UserService::checkYear(int year) {
     vector<Employee> salaryList = userRep.getSalaryList();
 
-    for (int i = 0; i < salaryList.size(); i++) {
+    for (unsigned int i = 0; i < salaryList.size(); i++) {
         if (salaryList[i].getYear() == year) {
             return true;
         }

@@ -39,7 +39,7 @@ void UserRep::changeSalaryList(vector<Employee> &salaryList) {
     ofstream fout;
     fout.open("SalaryList_Binary.dat", ios::binary);
     if(fout.is_open()) {
-        for (int i = 0; i < salaryList.size(); i++) {
+        for (unsigned int i = 0; i < salaryList.size(); i++) {
             salaryList[i].write(fout);
         }
         fout.close();

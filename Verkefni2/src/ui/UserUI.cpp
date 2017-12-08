@@ -39,7 +39,6 @@ void UserUI::startUI() {
 }
 
 void UserUI::addSalary() {
-    bool allowed = false;
 
     cout << "-----------------------Add Salary-----------------------" << endl;
     string name = validName();
@@ -66,16 +65,18 @@ void UserUI::printRecordSSN() {
     cout << "----------------Print records given SSN-----------------" << endl;
 
     string SSN = validSSN();
-
-    try {
-        bool valid = userServ.checkSSN(SSN);
-        vector<Employee> SSNSalaryList = userServ.getSSNRecords(SSN);
-        for (int i = 0; i < SSNSalaryList.size(); i++) {
-            cout << SSNSalaryList[i];
+    bool valid = false;
+    while(!valid){
+        try {
+            valid = userServ.checkSSN(SSN);
+            vector<Employee> SSNSalaryList = userServ.getSSNRecords(SSN);
+            for (unsigned int i = 0; i < SSNSalaryList.size(); i++) {
+                cout << SSNSalaryList[i];
+            }
         }
-    }
-    catch(SSNNotInListExeption) {
-        cout << "No salary from this SSN" << endl;
+        catch(SSNNotInListExeption) {
+            cout << "No salary from this SSN" << endl;
+        }
     }
     cout << "--------------------------------------------------------" << endl;
 }
@@ -83,18 +84,20 @@ void UserUI::printRecordSSN() {
 void UserUI::printRecordSSNYear() {
 
     cout << "--Print records for given SSN and year--" << endl;
-    string SSN = validSSN();
-    int year = validYear();
-
-    try {
-        bool valid = userServ.checkSSNYear(SSN, year);
-        vector<Employee> SSNYearSalaryList = userServ.getSSNYearRecords(SSN, year);
-         for (int i = 0; i < SSNYearSalaryList.size(); i++) {
-            cout << SSNYearSalaryList[i];
+    bool valid = false;
+    while(!valid){
+        string SSN = validSSN();
+        int year = validYear();
+        try {
+            valid = userServ.checkSSNYear(SSN, year);
+            vector<Employee> SSNYearSalaryList = userServ.getSSNYearRecords(SSN, year);
+             for (unsigned int i = 0; i < SSNYearSalaryList.size(); i++) {
+                cout << SSNYearSalaryList[i];
+            }
         }
-    }
-    catch(SSNYearNotInListExeption) {
-        cout << "No salary from this SSN and year" << endl;
+        catch(SSNYearNotInListExeption) {
+            cout << "No salary from this SSN and year" << endl;
+        }
     }
     cout << "--------------------------------------------------------" << endl;
 }
@@ -107,7 +110,7 @@ void UserUI::printHighest() {
     try {
         bool valid = userServ.checkYear(year);
         Employee highestEmp = userServ.getHighestEmployee(year);
-        cout << highestEmp;
+        cout << highestEmp.getName() << " with year salary of " << highestEmp.getYearSalary() << " kr!"<< endl;;
     }
     catch(YearNotInListExeption) {
         cout << "No salary from this year" << endl;

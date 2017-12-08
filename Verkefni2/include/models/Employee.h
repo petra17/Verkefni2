@@ -13,6 +13,7 @@ class Employee
         int month_salary;
         int month;
         int year;
+        int yearSalary;
 
     public:
         Employee();
@@ -28,6 +29,9 @@ class Employee
         int getMonthSalary();
         int getMonth();
         int getYear();
+        int getYearSalary();
+
+        void setYearSalary(int salary);
 };
 
 #endif // EMPLOYEE_H

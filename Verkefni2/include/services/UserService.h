@@ -34,6 +34,8 @@ class UserService
         Employee getHighestEmployee(int year);
         vector<Employee> printSalaryList();
 
+        bool notFound(string name, vector<Employee> set1);
+
         void fixName(string& name);
         void fixSNN(string& kennitala);
 

@@ -7,6 +7,7 @@ Employee::Employee()
     this->month_salary = 0;
     this->month = 0;
     this->year = 0;
+    this->yearSalary = 0;
 }
 
 Employee::Employee(string name, string SSN, int month_salary, int month, int year) {
@@ -90,6 +91,13 @@ int Employee::getMonth() {
 int Employee::getYear() {
     return this->year;
 }
+int Employee::getYearSalary(){
+    return this->yearSalary;
+}
+void Employee::setYearSalary(int salary){
+    this->yearSalary += salary;
+}
+
 
 
 
