@@ -2,15 +2,6 @@
 #define SSNNOTINLISTEXEPTION_H
 
 
-class SSNNotInListExeption
-{
-    public:
-        SSNNotInListExeption();
-        virtual ~SSNNotInListExeption();
-
-    protected:
-
-    private:
-};
+class SSNNotInListExeption { };
 
 #endif // SSNNOTINLISTEXEPTION_H

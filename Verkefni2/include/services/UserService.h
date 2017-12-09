@@ -3,10 +3,12 @@
 #include "UserRep.h"
 
 #include "InvalidNameException.h"
-#include "invalidSNNExeption.h"
+#include "InvalidSSNExeption.h"
 #include "InvalidSalaryException.h"
 #include "InvalidMonthException.h"
 #include "InvalidYearException.h"
+#include "AnotherEmployeesSSNException.h"
+
 
 #include "SalaryListChangedException.h"
 
@@ -19,6 +21,9 @@
 
 
 using namespace std;
+
+const int LOWESTSALARY = 0;
+const int HIGHESTSALARY = 1500000;
 
 class UserService
 {
@@ -41,13 +46,14 @@ class UserService
 
         bool isValidName(string name);
         bool isValidSNN(string kennitala);
+        bool compairSNNandName(string kennitala, string name);
         int isValidSalary(string salary);
         int isValidMonth(string month) ;
         int isValidYear(string year);
 
         bool checkSSN(string SSN);
         bool checkSSNYear(string SSN, int year);
-        bool checkYear(int year);
+        void checkYear(int year);
 };
 
 #endif // USERSERVICE_H

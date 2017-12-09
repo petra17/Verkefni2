@@ -14,18 +14,19 @@
 	<iostream>
 	<fstream>
 
-1512742565 /home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/include/ui/UserUI.h
+1512792193 /home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/include/ui/UserUI.h
 	"UserService.h"
 	<iostream>
 	<cstdlib>
 
-1512744109 /home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/include/services/UserService.h
+1512795015 /home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/include/services/UserService.h
 	"UserRep.h"
 	"InvalidNameException.h"
-	"invalidSNNExeption.h"
+	"InvalidSSNExeption.h"
 	"InvalidSalaryException.h"
 	"InvalidMonthException.h"
 	"InvalidYearException.h"
+	"AnotherEmployeesSSNException.h"
 	"SalaryListChangedException.h"
 	"SSNNotInListExeption.h"
 	"YearNotInListExeption.h"
@@ -44,10 +45,10 @@
 	<fstream>
 	"Employee.h"
 
-1512749825 source:/home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/src/services/UserService.cpp
+1512794961 source:/home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/src/services/UserService.cpp
 	"UserService.h"
 
-1512748368 source:/home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/src/ui/UserUI.cpp
+1512794898 source:/home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/src/ui/UserUI.cpp
 	"UserUI.h"
 	"Employee.h"
 
@@ -190,28 +191,38 @@
 1512593790 source:c:\users\mustard\desktop\verklegt1\verkefni2\verkefni2\src\exceptions\yearnotinlistexeption.cpp
 	"YearNotInListExeption.h"
 
-1512569065 /home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/include/exceptions/InvalidYearException.h
+1512793106 /home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/include/exceptions/InvalidYearException.h
 
-1512573796 /home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/include/exceptions/SalaryListChangedException.h
+1512793130 /home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/include/exceptions/SalaryListChangedException.h
 
-1512742565 /home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/include/exceptions/SSNNotInListExeption.h
+1512792978 /home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/include/exceptions/SSNNotInListExeption.h
 
-1512742565 /home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/include/exceptions/YearNotInListExeption.h
+1512793046 /home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/include/exceptions/YearNotInListExeption.h
 
-1512742565 /home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/include/exceptions/SSNYearNotInListExeption.h
+1512793130 /home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/include/exceptions/SSNYearNotInListExeption.h
 
-1512569065 source:/home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/src/exceptions/InvalidYearException.cpp
+1512793013 source:/home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/src/exceptions/InvalidYearException.cpp
 	"InvalidYearException.h"
 
 1512573796 source:/home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/src/exceptions/SalaryListChangedException.cpp
 	"SalaryListChangedException.h"
 
-1512742565 source:/home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/src/exceptions/SSNNotInListExeption.cpp
+1512792937 source:/home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/src/exceptions/SSNNotInListExeption.cpp
 	"SSNNotInListExeption.h"
 
-1512742565 source:/home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/src/exceptions/SSNYearNotInListExeption.cpp
+1512793046 source:/home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/src/exceptions/SSNYearNotInListExeption.cpp
 	"SSNYearNotInListExeption.h"
 
-1512742565 source:/home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/src/exceptions/YearNotInListExeption.cpp
+1512793046 source:/home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/src/exceptions/YearNotInListExeption.cpp
 	"YearNotInListExeption.h"
+
+1512792868 /home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/include/exceptions/AnotherEmployeesSSNException.h
+
+1512793181 /home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/include/exceptions/InvalidSSNExeption.h
+
+1512792868 source:/home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/src/exceptions/AnotherEmployeesSSNException.cpp
+	"AnotherEmployeesSSNException.h"
+
+1512792892 source:/home/arnorerling/Documents/VLN1new/Verkefni2/Verkefni2/src/exceptions/InvalidSSNExeption.cpp
+	"InvalidSSNExeption.h"
 

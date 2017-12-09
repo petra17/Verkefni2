@@ -42,7 +42,7 @@ void UserUI::addSalary() {
 
     cout << "-----------------------Add Salary-----------------------" << endl;
     string name = validName();
-    string SSN = validSSN();
+    string SSN = validateSSNAndName(name);
     int monthSalary = validMonthSalary();
     int month = validMonth();
     int year = validYear();
@@ -108,7 +108,7 @@ void UserUI::printHighest() {
     int year = validYear();
 
     try {
-        bool valid = userServ.checkYear(year);
+        userServ.checkYear(year);
         Employee highestEmp = userServ.getHighestEmployee(year);
         cout << highestEmp.getName() << " with year salary of " << highestEmp.getYearSalary() << " kr!"<< endl;;
     }
@@ -123,7 +123,7 @@ void UserUI::printAllRecords() {
     cout << "----------------------Salary List-----------------------" << endl;
     vector<Employee> salaryList = userServ.printSalaryList();
 
-    for (int i = 0; i < salaryList.size(); i++) {
+    for (unsigned int i = 0; i < salaryList.size(); i++) {
         cout << salaryList[i];
     }
     cout << "--------------------------------------------------------" << endl;
@@ -141,7 +141,7 @@ string UserUI::validName() {
             allowed = userServ.isValidName(name);
         }
         catch(InvalidNameException){
-            cout << "Invalid name kopboii" << endl;
+            cout << "Invalid name" << endl;
         }
     }
     return name;
@@ -159,13 +159,40 @@ string UserUI::validSSN() {
         try{
             allowed = userServ.isValidSNN(SSN);
         }
-        catch(invalidSNNExeption){
-            cout << "Invalid SNN kopboii" << endl;
+        catch(InvalidSSNExeption){
+            cout << "Invalid SNN" << endl;
         }
     }
     return SSN;
 }
 
+string UserUI::validateSSNAndName(string name) {
+
+    string SSN = "";
+    bool allowed = false;
+    while(!allowed){
+        cout << "SSN/kennitala: ";
+        cin >> ws;
+        getline(cin, SSN);
+        userServ.fixSNN(SSN);
+        try{
+            allowed = userServ.isValidSNN(SSN);
+            if(allowed){
+                allowed = userServ.compairSNNandName(SSN,name);
+            }
+        }
+        catch(InvalidSSNExeption){
+            cout << "Invalid SNN" << endl;
+            allowed = false;
+        }
+        catch(AnotherEmployeesSSNException){
+            cout << "SSN belongs to another person!" << endl;
+            allowed = false;
+        }
+    }
+
+    return SSN;
+}
 int UserUI::validMonthSalary() {
     string monthSalary1 = "";
     int monthSalary = 0;
@@ -179,7 +206,7 @@ int UserUI::validMonthSalary() {
             allowed = true;
         }
         catch(InvalidSalaryException){
-            cout << "Invalid salary kopboii" << endl;
+            cout << "Invalid salary" << endl;
         }
     }
     return monthSalary;
@@ -198,7 +225,7 @@ int UserUI::validMonth() {
             allowed = true;
         }
         catch(InvalidMonthException){
-            cout << "Invalid month kopboii" << endl;
+            cout << "Invalid month" << endl;
         }
     }
     return month;
@@ -217,7 +244,7 @@ int UserUI::validYear() {
             allowed = true;
         }
         catch(InvalidYearException){
-            cout << "Invalid Year kopboii" << endl;
+            cout << "Invalid Year" << endl;
         }
     }
     return year;

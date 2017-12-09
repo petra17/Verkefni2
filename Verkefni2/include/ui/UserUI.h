@@ -21,6 +21,7 @@ class UserUI
 
         string validName();
         string validSSN();
+        string validateSSNAndName(string name);
         int validMonthSalary();
         int validMonth();
         int validYear();

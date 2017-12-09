@@ -49,6 +49,7 @@ Employee UserService::getHighestEmployee(int year) {
         if (salaryList[i].getYear() == year) {
             if(notFound(salaryList[i].getName(),employeeList)){
                 employeeList.push_back(salaryList[i]);
+
             }
         }
     }
@@ -74,6 +75,7 @@ vector<Employee> UserService::printSalaryList() {
     vector<Employee> salaryList = userRep.getSalaryList();
     return salaryList;
 }
+
 bool UserService::notFound(string name, vector<Employee> set){
     for(unsigned int i = 0; i < set.size(); i++){
 		if(set[i].getName() == name){
@@ -82,7 +84,6 @@ bool UserService::notFound(string name, vector<Employee> set){
 	}
 	return true;
 }
-
 
 void UserService::fixName(string& name) {
 
@@ -102,8 +103,6 @@ void UserService::fixSNN(string& kennitala) {
     }
 }
 
-
-
 bool UserService::isValidName(string name) {
 
     for(unsigned int i = 0; i < name.length(); i++){
@@ -115,10 +114,19 @@ bool UserService::isValidName(string name) {
 }
 
 bool UserService::isValidSNN(string kennitala) {
-
     for(unsigned int i = 0; i < kennitala.length(); i++){
         if(!isdigit(kennitala[i]) || kennitala.length() != 10){
-             throw invalidSNNExeption();
+            throw InvalidSSNExeption();
+        }
+    }
+    return true;
+}
+
+bool UserService::compairSNNandName(string kennitala,string name) {
+    vector<Employee> salaryList = userRep.getSalaryList();
+    for(unsigned int i = 0; i < kennitala.length(); i++){
+        if(salaryList[i].getSSN() == kennitala && salaryList[i].getName() != name){
+            throw AnotherEmployeesSSNException();
         }
     }
     return true;
@@ -133,7 +141,7 @@ int UserService::isValidSalary(string salary) {
     }
     intSalary = atoi(salary.c_str());
 
-    if(intSalary < 100000 || intSalary > 2000000){
+    if(intSalary < LOWESTSALARY || intSalary > HIGHESTSALARY){
         throw InvalidSalaryException();
     }
     return intSalary;
@@ -168,8 +176,6 @@ int UserService::isValidYear(string year) {
     return intYear;
 }
 
-
-
 bool UserService::checkSSN(string SSN) {
     vector<Employee> salaryList = userRep.getSalaryList();
 
@@ -193,13 +199,16 @@ bool UserService::checkSSNYear(string SSN, int year) {
 
 }
 
-bool UserService::checkYear(int year) {
+void UserService::checkYear(int year) {
+    bool valid = false;
     vector<Employee> salaryList = userRep.getSalaryList();
 
     for (unsigned int i = 0; i < salaryList.size(); i++) {
         if (salaryList[i].getYear() == year) {
-            return true;
+            valid = true;
         }
-     }
-    throw YearNotInListExeption();
+    }
+    if(!valid){
+        throw YearNotInListExeption();
+    }
 }

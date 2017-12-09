@@ -2,6 +2,6 @@
 #define INVALIDSNNEXEPTION_H
 
 
-class invalidSNNExeption{ };
+class InvalidSSNExeption{ };
 
 #endif // INVALIDSNNEXEPTION_H

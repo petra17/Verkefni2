@@ -2,15 +2,6 @@
 #define YEARNOTINLISTEXEPTION_H
 
 
-class YearNotInListExeption
-{
-    public:
-        YearNotInListExeption();
-        virtual ~YearNotInListExeption();
-
-    protected:
-
-    private:
-};
+class YearNotInListExeption { };
 
 #endif // YEARNOTINLISTEXEPTION_H

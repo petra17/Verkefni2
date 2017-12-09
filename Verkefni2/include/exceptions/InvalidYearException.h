@@ -2,12 +2,6 @@
 #define INVALIDYEAREXCEPTION_H
 
 
-class InvalidYearException
-{
-    public:
-        InvalidYearException();
-    protected:
-    private:
-};
+class InvalidYearException { };
 
 #endif // INVALIDYEAREXCEPTION_H

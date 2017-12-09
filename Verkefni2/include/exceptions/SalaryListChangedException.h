@@ -2,8 +2,6 @@
 #define SALARYLISTCHANGEDEXCEPTION_H
 
 
-class SalaryListChangedException
-{
-};
+class SalaryListChangedException { };
 
 #endif // SALARYLISTCHANGEDEXCEPTION_H
