@@ -124,9 +124,11 @@ bool UserService::isValidSNN(string kennitala) {
 
 bool UserService::compairSNNandName(string kennitala,string name) {
     vector<Employee> salaryList = userRep.getSalaryList();
-    for(unsigned int i = 0; i < kennitala.length(); i++){
-        if(salaryList[i].getSSN() == kennitala && salaryList[i].getName() != name){
-            throw AnotherEmployeesSSNException();
+    if(salaryList.size() != 0){
+        for(unsigned int i = 0; i < kennitala.length(); i++){
+            if(salaryList[i].getSSN() == kennitala && salaryList[i].getName() != name){
+                throw AnotherEmployeesSSNException();
+            }
         }
     }
     return true;
@@ -170,7 +172,7 @@ int UserService::isValidYear(string year) {
     }
     intYear = atoi(year.c_str());
 
-    if(intYear < 1900 || intYear > 2017){
+    if(intYear < YEARFOUNDED || intYear > YEARNOW){
         throw InvalidYearException();
     }
     return intYear;

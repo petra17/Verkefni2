@@ -24,6 +24,8 @@ using namespace std;
 
 const int LOWESTSALARY = 0;
 const int HIGHESTSALARY = 1500000;
+const int YEARFOUNDED = 1900;
+const int YEARNOW = 2017;
 
 class UserService
 {
