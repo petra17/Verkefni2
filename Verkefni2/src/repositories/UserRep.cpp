@@ -19,6 +19,9 @@ vector<Employee> UserRep::getSalaryList() {
         }
         fin.close();
     }
+    else {
+        cout << "File did not open" << endl;
+    }
     return salaryList;
 }
 

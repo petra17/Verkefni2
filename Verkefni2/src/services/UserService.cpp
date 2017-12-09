@@ -55,7 +55,7 @@ Employee UserService::getHighestEmployee(int year) {
     }
     for (unsigned int i = 0; i < employeeList.size(); i++) {
         for (unsigned int j = 0; j < salaryList.size(); j++) {
-            if(salaryList[j].getName() == employeeList[i].getName()){
+            if(salaryList[j].getSSN() == employeeList[i].getSSN()){
                 if(salaryList[j].getYear() == year){
                     employeeList[i].setYearSalary(salaryList[j].getMonthSalary());
                 }
